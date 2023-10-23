@@ -1,0 +1,64 @@
+-- create table if not exists public.student
+-- (
+--     student_id    serial
+--         constraint student_pk
+--         primary key,
+--     first_name    varchar(100),
+--     last_name     varchar(100),
+--     date_of_birth date,
+--     email         varchar(100),
+--     phone_number  varchar(20)
+-- );
+--
+-- alter table public.student
+--     owner to postgres;
+--
+-- create table if not exists public.career_status
+-- (
+--     career_status_id   serial
+--         constraint career_status_pk
+--         primary key,
+--     career_status_name varchar(100)
+-- );
+--
+-- alter table public.career_status
+--     owner to postgres;
+--
+-- create table if not exists public.career_enrollment
+-- (
+--     career_enrollment_id serial
+--         constraint career_enrollment_pk
+--         primary key,
+--     student_id           integer not null
+--         constraint career_enrollment_student_student_id_fk
+--         references public.student,
+--     career_id            integer not null,
+--     enrollment_date      date,
+--     career_status_id     integer not null
+--         constraint career_enrollment_career_status_career_status_id_fk
+--         references public.career_status,
+--     career_status_date   date
+-- );
+--
+-- alter table public.career_enrollment
+--     owner to postgres;
+--
+-- create table public.course_enrollment
+-- (
+--     course_enrollment_id serial
+--         constraint course_enrollment_pk
+--         primary key,
+--     student_id           integer not null
+--         constraint course_enrollment_student_student_id_fk
+--         references public.student,
+--     course_occurrence_id integer not null,
+--     attendance_score     double precision,
+--     progress_score       double precision,
+--     midterm_exam_score   double precision,
+--     final_exam_score     double precision,
+--     final_score          double precision
+-- );
+--
+-- alter table public.course_enrollment
+--     owner to postgres;
+--

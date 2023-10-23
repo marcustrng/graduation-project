@@ -5,6 +5,6 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/marcustrng/graduation-project-ums-configurations.git
+          uri: https://github.com/marcustrng/graduation-project.git
           search-paths: configuration
-          default-label: main
+          default-label: master
