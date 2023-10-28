@@ -1,4 +1,4 @@
-package com.uth.ums.enrollment.model.entity;
+package com.uth.ums.career.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

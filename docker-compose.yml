@@ -8,7 +8,9 @@ volumes:
 
 services:
   core-database:
-    image: postgres
+    build:
+      context: ./docker
+      dockerfile: core-db.Dockerfile
     volumes:
       - postgres_core_data:/var/lib/postgresql/data
     ports:
@@ -17,11 +19,11 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
   keycloak-database:
-    image: postgres
+    image: postgres:16.0-alpine
     volumes:
       - postgres_keycloak_data:/var/lib/postgresql/data
     ports:
-      - "54321:5432"
+      - "5433:5432"
     environment:
       POSTGRES_DB: keycloak
       POSTGRES_USER: keycloak
