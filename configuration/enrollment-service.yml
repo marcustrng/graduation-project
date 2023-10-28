@@ -9,6 +9,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create-drop
+flyway:
+  url: jdbc:postgresql://localhost:5432/student_and_enrollment?createDatabaseIfNotExist=true
 
 server:
   port: 8092
