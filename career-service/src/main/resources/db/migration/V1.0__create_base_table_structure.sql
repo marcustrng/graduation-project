@@ -1,44 +1,80 @@
-create table public.university_classes
+create table public.faculties
 (
-    university_class_id   serial
-        constraint university_classes_pk
-            primary key,
-    career_id  integer not null,
-    class_name varchar(100)
+    faculty_id   serial
+        constraint faculties_pk
+        primary key,
+    faculty_name varchar(100)
 );
 
-create table public.students
+create table public.career_level
 (
-    student_id         serial
-        constraint students_pk
-            primary key,
-    class_id           integer
-        constraint students_university_classes_fk
-            references public.university_classes,
-    first_name         varchar(100),
-    last_name          varchar(100),
-    date_of_birth      date,
-    gender             varchar(10),
-    phone_number       varchar(15),
-    email              varchar(50),
-    career_status_name varchar(50),
-    career_status_date date
+    career_level_id   serial
+        constraint career_level_pk
+        primary key,
+    career_level_name varchar(100) not null
 );
 
-create table public.course_enrollment
+create table public.careers
 (
-    course_enrollment_id serial
-        constraint course_enrollment_pk
-            primary key,
-    student_id           integer not null
-        constraint course_enrollment_students_student_id_fk
-            references public.students,
-    course_occurrence_id integer not null,
-    attendance_score     double precision,
-    progress_score       double precision,
-    midterm_exam_score   double precision,
-    final_exam_score     double precision,
-    final_score          double precision
+    career_id       serial
+        constraint careers_pk
+        primary key,
+    career_level_id integer not null
+        constraint careers_career_level_career_level_id_fk
+        references public.career_level,
+    career_name     varchar(100),
+    faculty_id      integer not null
+        constraint careers_faculties_faculty_id_fk
+        references public.faculties
 );
 
+create table public.semesters
+(
+    semester_id serial
+        constraint semesters_pk
+        primary key,
+    career_id   integer not null
+        constraint semesters_careers_career_id_fk
+        references public.careers,
+    semester_no smallint
+);
+
+create table public.courses
+(
+    course_id   serial
+        constraint courses_pk
+        primary key,
+    course_name varchar(100),
+    semester_id integer not null
+        constraint courses_semesters_semester_id_fk
+        references public.semesters,
+    course_code varchar(20),
+    optative    smallint
+);
+
+create table public.professors
+(
+    professor_id  serial
+        constraint professors_pk
+        primary key,
+    first_name    varchar(100),
+    last_name     varchar(100),
+    date_of_birth date,
+    gender        varchar(10),
+    phone_number  varchar(15),
+    email         varchar(20)
+);
+
+create table public.professor_course
+(
+    professor_course_id serial
+        constraint professor_course_pk
+        primary key,
+    professor_id        integer not null
+        constraint professor_course_professors_professor_id_fk
+        references public.professors,
+    course_id           integer not null
+        constraint professor_course_courses_course_id_fk
+        references public.courses
+);
 
