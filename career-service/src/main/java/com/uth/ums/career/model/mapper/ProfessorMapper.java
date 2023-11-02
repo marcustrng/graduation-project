@@ -1,0 +1,18 @@
+package com.uth.ums.career.model.mapper;
+
+import com.uth.ums.career.model.dto.CareerDto;
+import com.uth.ums.career.model.dto.ProfessorDto;
+import com.uth.ums.career.model.entity.Career;
+import com.uth.ums.career.model.entity.Professor;
+import org.mapstruct.InjectionStrategy;
+import org.mapstruct.Mapper;
+
+@Mapper(
+        componentModel = "spring",
+        uses = {},
+        injectionStrategy = InjectionStrategy.CONSTRUCTOR
+)
+public interface ProfessorMapper {
+    ProfessorDto toDto(Professor entity);
+    Professor toEntity(ProfessorDto dto);
+}
