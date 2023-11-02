@@ -7,6 +7,7 @@ spring:
   flyway:
     baseline-on-migrate: true
     enabled: true
+    schemas: public
   jpa:
     hibernate:
       ddl-auto: update
