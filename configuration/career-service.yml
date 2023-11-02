@@ -4,6 +4,12 @@ spring:
     spring.datasource.driver-class-name: org.postgresql.Driver
     username: postgres
     password: password
+  flyway:
+    baseline-on-migrate: true
+    enabled: true
+    url: jdbc:postgresql://localhost:5432/career_planning
+    user: postgres
+    password: password
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -24,7 +30,4 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
     operationsSorter: method
-flyway:
-  enabled: true
-  baseline-on-migrate: true
 
