@@ -1,9 +1,9 @@
-INSERT INTO public.career_level (career_level_name)
-VALUES ('DOCTOR'),
-       ('MASTER'),
-       ('BACHELOR'),
-       ('ASSOCIATE'),
-       ('INTERMEDIATE');
+INSERT INTO public.career_level (career_level_id, career_level_name)
+VALUES (1,'DOCTOR'),
+       (2,'MASTER'),
+       (3,'BACHELOR'),
+       (4,'ASSOCIATE'),
+       (5,'INTERMEDIATE');
 
 INSERT INTO public.faculties (faculty_name)
 VALUES ('ACCOUNTING'),

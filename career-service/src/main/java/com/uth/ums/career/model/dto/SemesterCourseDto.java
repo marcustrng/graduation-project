@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 @Value
 public class SemesterCourseDto implements Serializable {
-    Long professorCourseId;
-    SemesterDto semester;
+    Long semesterCourseId;
     CourseDto course;
 }

@@ -14,6 +14,6 @@ public class CareerLevel {
     @Column(name = "career_level_id", nullable = false)
     private Long careerLevelId;
 
-    @Column
+    @Column(name = "career_level_name")
     private String careerLevelName;
 }

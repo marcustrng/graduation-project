@@ -26,6 +26,7 @@ public class Career {
     @JoinColumn(name="faculty_id", nullable=false)
     private Faculty faculty;
 
-    @OneToMany(mappedBy="career")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "career_id")
     private Set<Semester> semesters;
 }

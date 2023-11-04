@@ -14,5 +14,5 @@ public class CareerDto implements Serializable {
     String careerName;
     CareerLevelDto careerLevel;
     FacultyDto faculty;
-    Set<SemesterDto> semesters;
+    transient Set<SemesterDto> semesters;
 }

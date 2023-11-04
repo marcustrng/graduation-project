@@ -14,5 +14,5 @@ public class CourseDto implements Serializable {
     String courseName;
     String courseCode;
     Integer credits;
-    Set<ProfessorCourseDto> professorCourses;
+    transient Set<ProfessorCourseDto> professorCourses;
 }

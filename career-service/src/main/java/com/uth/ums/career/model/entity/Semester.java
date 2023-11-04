@@ -19,10 +19,11 @@ public class Semester {
     private Integer semesterNo;
 
     @ManyToOne
-    @JoinColumn(name="career_id", nullable=false)
+    @JoinColumn(name="career_id")
     private Career career;
 
-    @OneToMany(mappedBy="semester")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name="semester_id")
     private Set<SemesterCourse> semesterCourses;
 
 }

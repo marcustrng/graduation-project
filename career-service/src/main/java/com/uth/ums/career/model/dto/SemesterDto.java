@@ -12,5 +12,5 @@ import java.util.Set;
 public class SemesterDto implements Serializable {
     Long semesterId;
     Integer semesterNo;
-    Set<SemesterCourseDto> semesterCourses;
+    transient Set<SemesterCourseDto> semesterCourses;
 }

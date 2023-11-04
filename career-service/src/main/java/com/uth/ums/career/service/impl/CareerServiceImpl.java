@@ -1,6 +1,7 @@
 package com.uth.ums.career.service.impl;
 
 import com.uth.ums.career.model.dto.CareerDto;
+import com.uth.ums.career.model.entity.Career;
 import com.uth.ums.career.model.mapper.CareerMapper;
 import com.uth.ums.career.repository.CareerRepository;
 import com.uth.ums.career.service.CareerService;
@@ -28,7 +29,9 @@ public class CareerServiceImpl implements CareerService {
 
     @Override
     public CareerDto createNew(CareerDto dto) {
-        return null;
+        Career entity = careerMapper.toEntity(dto);
+        Career save = careerRepository.save(entity);
+        return careerMapper.toDto(save);
     }
 
     @Override

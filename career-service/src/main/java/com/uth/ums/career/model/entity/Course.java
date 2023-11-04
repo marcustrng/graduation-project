@@ -21,7 +21,7 @@ public class Course {
     private Integer credits;
 
     @OneToMany(mappedBy = "course")
-    Set<ProfessorCourse> professorCourses;
+    private Set<ProfessorCourse> professorCourses;
 
     @OneToMany(mappedBy="course")
     private Set<SemesterCourse> semesterCourses;
